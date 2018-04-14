@@ -15,6 +15,9 @@ Route::get('/','BerandaController@index')->name('beranda');
 Route::get('/panduan','BerandaController@panduan')->name('panduan');
 Route::get('/tentang','BerandaController@tentang')->name('tentang');
 Route::get('/kontak','BerandaController@kontak')->name('kontak');
+Route::get('/report','ReportController@index')->name('view.report');
+Route::get('/reports','ReportController@all')->name('all.report');
+Route::post('/reportss','ReportController@post')->name('post.report');
 
 Route::prefix('user')->group(function(){
 	Auth::routes();

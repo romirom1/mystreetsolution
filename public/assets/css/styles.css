@@ -62,10 +62,12 @@ nav.navbar.navbar-inverse.nav-atas{
 
 li.nav-btn.btn-regis a{
   color:#fafafa;
+  padding:0px 15px;
 }
 
 li.nav-btn.btn-login a{
   color:#fafafa;
+  padding:0px 25px;
 }
 
 li.btn-login{
@@ -142,7 +144,7 @@ div.row.row-register{
   margin:0px;
 }
 
-div#text-keterangan.col-md-12{
+div#isine-kontent.col-md-12{
   padding-bottom:30px;
 }
 
@@ -325,7 +327,7 @@ button.btn.btn-primary.login-button{
 
 div.bungkus-about{
   background-color:#e6e6e6;
-  margin:2% 5%;
+  margin:2% 10%;
   border-radius:10px;
   padding:3%;
 }
@@ -346,12 +348,13 @@ div.bungkus-slider{
 }
 
 div.bungkus-slider{
-  margin:5%;
+  margin:5% 10%;
 }
 
 div.row.row-bawahslider{
   margin:0;
   text-align:left;
+  padding:5px 30px;
 }
 
 div.row.row-bawahslider{
@@ -419,7 +422,7 @@ img.img-fluid{
 
 div.bungkus-beranda{
   background-color:#e6e6e6;
-  margin:2% 5%;
+  margin:2% 10%;
   border-radius:10px;
   padding:3%;
 }
@@ -961,5 +964,173 @@ a.member-laporan-isi.link-bawahlaporan.link-admin-isi{
 
 a.member-laporan-isi.link-bawahlaporan.link-admin-isi.khusus{
   padding:0px 5px;
+}
+
+div.row.row-heading{
+  padding:0;
+  border-bottom:1px solid #818080;
+}
+
+div.row.row-panduan{
+  border-bottom:5px solid #00436d;
+  padding:0px;
+  margin:0% 10%;
+}
+
+ul.list-tombol{
+  padding:0px;
+}
+
+li.list-btn-panduan{
+  list-style:none;
+  display:inline-block;
+}
+
+.btn-panduan{
+  background:#2C97DF;
+  color:white;
+  border-top:0;
+  border-left:0;
+  border-right:0;
+  padding:10px 20px;
+  text-decoration:none;
+  font-size:12pt;
+  font-weight:600;
+  border-bottom:2px solid #2C97DF;
+}
+
+.btn-active-panduan, .btn-panduan:hover{
+  background:#00436d;
+  text-decoration:none;
+  color:#fafafa;
+  border-bottom:2px solid #00436d;
+}
+
+a.btn-panduan:focus{
+  background:#00436d;
+  text-decoration:none;
+  color:#fafafa;
+}
+
+div.bungkus-panduan{
+  background-color:#e6e6e6;
+  margin:0 10%;
+  margin-bottom:4%;
+  padding:3%;
+}
+
+div.row.konten-panduan{
+  text-align:left;
+  padding-top:0;
+}
+
+div.row.konten-panduan p{
+  text-align:justify;
+}
+
+button.btn-panduan:focus{
+  background:#00436d;
+  color:#fafafa;
+}
+
+button.btn-panduan.btn-tutorial.btn-active-panduan{
+  margin:0;
+}
+
+li.list-btn-panduan{
+  background:#2C97DF;
+  margin-top:20px;
+  margin-bottom:0;
+}
+
+div.col-md-12.col-btn-panduan{
+  height:65px;
+}
+
+i.fa.fa-book.icone{
+  font-size:25px;
+  float:left;
+  padding-right:25px;
+}
+
+label.label-laporan{
+  margin-top:10px;
+}
+
+div.row.row-lokasi{
+  margin-right:5%;
+  margin-left:0%;
+  border:3px solid;
+  border-top:none;
+  border-bottom:none;
+}
+
+div.row.row-deskripsi{
+  margin-right:5%;
+  margin-left:0%;
+  border:3px solid;
+  border-top:none;
+  border-bottom:none;
+}
+
+div.row.row-foto{
+  margin-right:5%;
+  margin-left:0%;
+  border:3px solid;
+  border-top:none;
+}
+
+div.col-lg-9.col-md-9.col-sm-8.col-xs-12.foto-input{
+  width:60%;
+  padding:0;
+}
+
+img.img-fluid.semua-laporan{
+  height:200px;
+  max-width:100%;
+}
+
+div.row.konten-laporan h3{
+  text-decoration:underline;
+  text-align:center;
+  margin:0;
+}
+
+div.row.konten-laporan{
+  border-bottom:2px dashed;
+}
+
+ul.list-daftar-laporan{
+  font-size:10pt;
+  padding-left:0;
+}
+
+li.laporan-tanggal{
+  float:left;
+  list-style:none;
+  margin-right:60px;
+}
+
+li.laporan-komentar{
+  float:left;
+  margin-right:60px;
+}
+
+li.laporan-nama{
+  float:left;
+}
+
+div.row.isi-laporan{
+  padding-top:10px;
+  border-bottom:1px solid #b4afaf;
+}
+
+div.row.isi-laporan p{
+  text-align:justify;
+  font-size:10pt;
+}
+
+div.row.isi-laporan h4{
+  margin-top:0;
 }
 

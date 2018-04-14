@@ -1,37 +1,17 @@
 @extends('layouts.master')
 @section('content')
-    <div id="bungkus-nav">
-        <div id="nav-pertama">
-            <nav class="navbar navbar-inverse nav-atas">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <a class="navbar-brand navbar-link" href="index.html"> <img src="{{ asset('assets/img/logo.png') }}" id="img-logo"></a>
-                        <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-                    </div>
-                    <div class="collapse navbar-collapse" id="navcol-1"></div>
-                </div>
-            </nav>
-        </div>
-        <div id="nav-kedua">
-            <ul class="nav nav-tabs nav-bawah">
-                <li><a href="index.html">BERANDA </a></li>
-                <li><a href="#">PANDUAN </a></li>
-                <li><a href="#">TENTANG </a></li>
-                <li><a href="kontak.html">KONTAK </a></li>
-            </ul>
-        </div>
-    </div>
     <div class="content">
         <div id="content2">
             <div class="bungkus-login">
                 <div class="row row-register">
                     <div class="col-lg-8 col-md-6 col-sm-6">
-                        <a href="index.html"><img src="assets/img/logo.png"></a>
+                        <a href="{{ route('beranda') }}"><img src="{{ asset('assets/img/logo.png') }}"></a>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <ul class="navbar-left nav-akun">
-                            <li> <a href="#">Belum punya akun? </a></li>
-                        </ul><a class="btn btn-link btn-masuk" role="button" href="register.html">DAFTAR </a></div>
+                            <a href="#">Belum punya akun? </a>
+                        </ul><a class="btn btn-link btn-masuk" role="button" href="{{ route('register') }}">DAFTAR </a>
+                    </div>
                 </div>
                 <div class="row row-info">
                     <div class="col-md-12"><i class="fa fa-lock icone"></i>

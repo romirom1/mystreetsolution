@@ -2,33 +2,6 @@
 @section('content')
     <div id="main">
         <div id="bungkus-nav">
-            <div class="nav-pertama">
-                <nav class="navbar navbar-inverse nav-atas">
-                    <div class="container-fluid">
-                        <div class="navbar-header">
-                            <a class="navbar-brand navbar-link" href="#">
-                                <span id="openNav" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span><img src="{{ asset('assets/img/logo.png') }}" id="img-logo"></a>
-                            <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"></button>
-                        </div>
-                        <div class="collapse navbar-collapse" id="navcol-1">
-                            <ul class="nav navbar-nav akun-dropdown">
-                                <li class="dropdown akun-dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Akun saya <i class="glyphicon glyphicon-user"></i><span class="caret"></span></a>
-                                    <ul class="dropdown-menu akun-dropdown" role="menu">
-                                        <li role="presentation"><a href="#">Carlos Coy</a></li>
-                                        <li role="presentation"><a href="#">Edit Profil</a></li>
-                                        <li role="presentation"><a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">Log Out</a>
-                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
-            </div>
             <div class="nav-ketiga">
                 <h2>DASHBOARD MEMBER</h2></div>
             <div id="mySidenav" class="nav-kedua sidenav">
@@ -36,7 +9,7 @@
                 <div class="row row-sidebar">
                     <div class="col-md-12 col-sm-12 col-xs-12 col-sidebar">
                         <ul class="navsidebar">
-                            <li class="list-navsidebar"><a href="#" class="list-sidebar"><i class="glyphicon glyphicon-dashboard icon-sidebar"></i><span>Beranda </span> </a> </li>
+                            <li class="list-navsidebar"><a href="{{ route('beranda') }}" class="list-sidebar"><i class="glyphicon glyphicon-dashboard icon-sidebar"></i><span>Beranda </span> </a> </li>
                             <li class="list-navsidebar"><a href="#" class="list-sidebar"><i class="glyphicon glyphicon-list-alt icon-sidebar"></i><span>Buat Laporan</span></a> </li>
                             <li class="list-navsidebar"><a href="#" class="list-sidebar"><i class="glyphicon glyphicon-screenshot icon-sidebar"></i><span>Pantau Laporan</span></a> </li>
                         </ul>
@@ -56,9 +29,9 @@
                 <div class="content-member">
                     <div class="row Admin-name">
                         <div class="col-md-12 col-adminName">
-                            <h3>Carlos coy</h3>
-                            <p>carloscoy@gmail.com</p>
-                            <p>Bergabung sejak 1 bulan yang lalu</p>
+                            <h3>{{ Auth()->user()->name }}</h3>
+                            <p>{{ Auth()->user()->email }}</p>
+                            <p>Bergabung sejak {{ Auth()->user()->created_at }}</p>
                         </div>
                     </div>
                     <div class="row row-laporan">
