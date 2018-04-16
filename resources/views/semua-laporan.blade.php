@@ -9,10 +9,10 @@
                 </div>
                 @foreach ($laporan as $key => $value)
                     <div class="row isi-laporan">
-                    <div class="col-md-4 col-sm-2 col-kiri"><img src="assets/img/pengen.jpg" class="img-fluid semua-laporan"></div>
-                    <div class="col-md-8 col-sm-4">
+                    <div class="col-md-4 col-sm-2 col-kiri"><img src="{{ asset('photo') }}/{{ $value->photo }}" class="img-fluid semua-laporan"></div>
+                    <div class="col-md-8 col-sm-4 " style="word-wrap: break-word;">
                         <h4>{{ $value->title }}</h4>
-                        <p>{{ $value->content }}</p>
+                            {{ $value->content }}
                         <ul class="list-daftar-laporan">
                             <li class="laporan-tanggal">{{ $value->created_at }} </li>
                             <li class="laporan-komentar">0 Komentar</li>

@@ -9,30 +9,17 @@
                         <div class="col-md-12 col-sm-12">
                         <h3>LAPORAN TERBARU</h3>
                         </div>
+                        @foreach ($laporan as $element)
                         <div class="col-md-12 col-sm-12">
-                        <div class="col-md-4 col-sm-4 col-kiri"><img src="{{asset('assets/img/pengen.jpg')}}" class="img-fluid img-beranda"></div>
-                        <div class="col-md-8 col-sm-8">
-                        <h4>Laporan Jalan Buntu</h4>
-                        <p><em>Lorem ipsum</em>, atau ringkasnya lipsum, adalah teks standar yang ditempatkan untuk mendemostrasikan elemen grafis atau presentasi visual seperti font, tipografi, dan tata letak. Maksud penggunaan lipsum adalah agar pengamat
-                            tidak terlalu berkonsentrasi kepada arti harfiah per kalimat, melainkan lebih kepada elemen </p>
+                        <div class="col-md-4 col-sm-4 col-kiri"><img src="{{ asset('photo') }}/{{ $element->photo }}" class="img-fluid img-beranda"></div>
+                        <div class="col-md-8 col-sm-8" style="word-wrap: break-word;">
+                        <h4>{{ $element->title }}</h4>
+                        <p><em>{{ $element->title}}</em>, {{ $element->content }}</p>
                         </div>
                         </div>
-                        <div class="col-md-12 col-sm-12">
-                        <div class="col-md-4 col-sm-4 col-kiri"><img src="{{asset('assets/img/pengen.jpg')}}" class="img-fluid img-beranda"></div>
-                        <div class="col-md-8 col-sm-8">
-                        <h4>Laporan Jalan Buntu</h4>
-                        <p><em>Lorem ipsum</em>, atau ringkasnya lipsum, adalah teks standar yang ditempatkan untuk mendemostrasikan elemen grafis atau presentasi visual seperti font, tipografi, dan tata letak. Maksud penggunaan lipsum adalah agar pengamat
-                            tidak terlalu berkonsentrasi kepada arti harfiah per kalimat, melainkan lebih kepada elemen </p>
-                        </div>
-                        </div>
-                        <div class="col-md-12 col-sm-12">
-                        <div class="col-md-4 col-sm-4 col-kiri"><img src="{{asset('assets/img/pengen.jpg')}}" class="img-fluid img-beranda"></div>
-                        <div class="col-md-8 col-sm-8">
-                        <h4>Laporan Jalan Buntu</h4>
-                        <p><em>Lorem ipsum</em>, atau ringkasnya lipsum, adalah teks standar yang ditempatkan untuk mendemostrasikan elemen grafis atau presentasi visual seperti font, tipografi, dan tata letak. Maksud penggunaan lipsum adalah agar pengamat
-                            tidak terlalu berkonsentrasi kepada arti harfiah per kalimat, melainkan lebih kepada elemen </p>
-                        </div>
-                        </div>
+                        <div class="col-md-12 col-sm-12"><br></div>
+                        @endforeach
+                        <div class="col-md-12 col-sm-12"><a class="btn btn-default btn-lihatsemua" role="button" href="{{ route('semua.laporan') }}">LIHAT SEMUA LAPORAN</a> </div>    
                     </div>
                     <div class="col-md-6 col-sm-6">
                         <h3>KATEGORI LAPORAN</h3>
@@ -60,11 +47,11 @@
                         <ul id="list-chart">
                             <div class="container-fluid">
                                 <div class="col-md-6 col-sm-6">
-                                    <li class="chart-masuk">40.XXX </li>
+                                    <li class="chart-masuk">{{ $count1 }} </li>
                                     <li class="ket-masuk">LAPORAN MASUK</li>
                                 </div>
                                 <div class="col-md-6 col-sm-6">
-                                    <li class="chart-keluar">23.XXX </li>
+                                    <li class="chart-keluar">{{ $count2 }}</li>
                                     <li class="ket-tuntas">LAPORAN TUNTAS</li>
                                 </div>
                             </div>

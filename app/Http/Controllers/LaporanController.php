@@ -4,17 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App;
-class ReportController extends Controller
+use Illuminate\Support\Facades\DB;
+class LaporanController extends Controller
 {
     public function index(){
     	$kategori=App\Category::all();
-    	return view('report')->with('kategori',$kategori);
+    	return view('user.tambah-laporan')->with('kategori',$kategori);
     }
 
     public function all(){
-    	$laporan=App\Report::all();
+    	$laporan=DB::table('reports')->orderBy('created_at','desc')->get();
     	return view('semua-laporan')->with('laporan',$laporan);
     }
+
     public function post(Request $request){
  		$add = new App\Report;
  		$add->user_id= $request['user_id'];
@@ -28,7 +30,12 @@ class ReportController extends Controller
         $add->photo = $getimageName;
         $add->save();
 
-        return redirect()->route('beranda');
+        return redirect()->route('user.dashboard');
+    }
+
+    public function delete($ide){
+        DB::table('reports')->delete($ide);
+        return intend()->route('user.dashboard');
     }
 
 

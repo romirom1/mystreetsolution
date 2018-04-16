@@ -23,7 +23,7 @@
                 </div>
 
                 <!-- FORM REGRISTRASI -->
-                <form id="formulir-register" class="bootstrap-form-with-validation" method="POST" action="{{ route('register') }}>
+                <form id="formulir-register" class="bootstrap-form-with-validation" method="POST" action="{{ route('register') }}">
                     {{ csrf_field() }}
                     <div class="row">
                         <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 regis-nama">

@@ -1,5 +1,6 @@
 @extends('layouts.master')
 @section('content')
+
         <div id="bungkus-nav">
             <div class="nav-pertama">
                 <nav class="navbar navbar-inverse nav-atas">
@@ -28,6 +29,8 @@
                     </div>
                 </nav>
             </div>
+<div id="main">
+        <div id="bungkus-nav">
             <div class="nav-ketiga">
                 <h2>DASHBOARD ADMIN</h2></div>
             <div id="mySidenav" class="nav-kedua sidenav">
@@ -35,8 +38,7 @@
                 <div class="row row-sidebar">
                     <div class="col-md-12 col-sm-12 col-xs-12 col-sidebar">
                         <ul class="navsidebar">
-                            <li class="list-navsidebar"><a href="#" class="list-sidebar"><i class="glyphicon glyphicon-dashboard icon-sidebar"></i><span>Beranda </span> </a> </li>
-                            <li class="list-navsidebar"><a href="#" class="list-sidebar"><i class="glyphicon glyphicon-list-alt icon-sidebar"></i><span>Buat Laporan</span></a> </li>
+                            <li class="list-navsidebar"><a href="{{ route('beranda') }}" class="list-sidebar"><i class="glyphicon glyphicon-dashboard icon-sidebar"></i><span>Beranda </span> </a> </li>
                             <li class="list-navsidebar"><a href="#" class="list-sidebar"><i class="glyphicon glyphicon-screenshot icon-sidebar"></i><span>Pantau Laporan</span></a> </li>
                         </ul>
                     </div>
@@ -44,7 +46,7 @@
                 <div class="row row-sidebar">
                     <div class="col-md-12 col-sm-12 col-xs-12 col-sidebar">
                         <ul class="navsidebar sidebar-back">
-                            <li class="list-navsidebar"><a href="#" class="list-sidebar"><i class="glyphicon glyphicon-circle-arrow-left icon-sidebar"></i><span>Kembali </span> </a> </li>
+                            <li class="list-navsidebar"><a href="{{URL::previous() }}" class="list-sidebar"><i class="glyphicon glyphicon-circle-arrow-left icon-sidebar"></i><span>Kembali </span> </a> </li>
                         </ul>
                     </div>
                 </div>
@@ -57,7 +59,6 @@
                         <div class="col-md-12 col-adminName">
                             <h3>{{ Auth()->user()->name }}</h3>
                             <p>{{ Auth()->user()->email }}</p>
-                            <p>08100000000000 </p>
                         </div>
                     </div>
                     <div class="row row-laporan">
@@ -87,53 +88,23 @@
                             <div class="col-md-4 col-sm-4 col-laporan-admin">
                                 <h4>AKSI </h4></div>
                         </div>
-                        <div class="row admin-laporan-isi">
-                            <div class="col-lg-2 col-md-2 col-sm-2 admin-isi-laporan col-isi-judul"><a href="#" class="member-laporan-isi">Trotoar Tidak Tersedia..</a></div>
+                        @foreach ($data as $datas)
+                            <div class="row admin-laporan-isi">
+                            <div class="col-lg-2 col-md-2 col-sm-2 admin-isi-laporan col-isi-judul"><a href="#" class="member-laporan-isi">{{ $datas->title }}</a></div>
                             <div class="col-lg-2 col-md-2 col-sm-2 admin-isi-laporan col-isi-kategori">
-                                <p class="member-laporan-isi">Trotoar </p>
+                                <p class="member-laporan-isi">{{ $datas->name }} </p>
                             </div>
                             <div class="col-lg-2 col-md-2 col-sm-2 admin-isi-laporan col-isi-tanggal">
-                                <p class="member-laporan-isi">13/04/2018 </p>
+                                <p class="member-laporan-isi">{{ $datas->created_at }} </p>
                             </div>
                             <div class="col-lg-2 col-md-2 col-sm-2 admin-isi-laporan col-isi-lokasi">
-                                <p class="member-laporan-isi">Manukan </p>
+                                <p class="member-laporan-isi">{{ $datas->location }} </p>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-4 admin-isi-laporan"><a class="btn btn-default member-laporan-isi btn-terima" role="button" href="#">TERIMA </a><a class="btn btn-default member-laporan-isi btn-tolak" role="button" href="#">TOLAK </a></div>
                         </div>
-                        <div class="row admin-laporan-isi">
-                            <div class="col-lg-2 col-md-2 col-sm-2 admin-isi-laporan col-isi-judul"><a href="#" class="member-laporan-isi">Lubang Besar di daerah,,,</a></div>
-                            <div class="col-lg-2 col-md-2 col-sm-2 admin-isi-laporan col-isi-kategori">
-                                <p class="member-laporan-isi">Jalan Rusak</p>
-                            </div>
-                            <div class="col-lg-2 col-md-2 col-sm-2 admin-isi-laporan col-isi-tanggal">
-                                <p class="member-laporan-isi">13/04/2018 </p>
-                            </div>
-                            <div class="col-lg-2 col-md-2 col-sm-2 admin-isi-laporan col-isi-lokasi">
-                                <p class="member-laporan-isi">Jambangan Timur</p>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4 admin-isi-laporan"><a class="btn btn-default member-laporan-isi btn-terima" role="button" href="#">TERIMA </a><a class="btn btn-default member-laporan-isi btn-tolak" role="button" href="#">TOLAK </a></div>
-                        </div>
-                        <div class="row admin-laporan-isi">
-                            <div class="col-lg-2 col-md-2 col-sm-2 admin-isi-laporan col-isi-judul"><a href="#" class="member-laporan-isi">Tolong perbanyak penerangan</a></div>
-                            <div class="col-lg-2 col-md-2 col-sm-2 admin-isi-laporan col-isi-kategori">
-                                <p class="member-laporan-isi">Lampu penerangan Jalan</p>
-                            </div>
-                            <div class="col-lg-2 col-md-2 col-sm-2 admin-isi-laporan col-isi-tanggal">
-                                <p class="member-laporan-isi">13/04/2018 </p>
-                            </div>
-                            <div class="col-lg-2 col-md-2 col-sm-2 admin-isi-laporan col-isi-lokasi">
-                                <p class="member-laporan-isi">Golf Marinir</p>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4 admin-isi-laporan"><a class="btn btn-default member-laporan-isi btn-terima" role="button" href="#">TERIMA </a><a class="btn btn-default member-laporan-isi btn-tolak" role="button" href="#">TOLAK </a></div>
-                        </div>
+                        @endforeach
                         <div class="row row-member-laporan-judul">
-                            <div class="col-lg-12 col-md-12 col-isi-laporan link-bawahlaporan"><a href="#" class="member-laporan-isi link-bawahlaporan link-admin-isi">PREV </a><a href="#" class="member-laporan-isi link-bawahlaporan link-admin-isi">1 </a><a href="#" class="member-laporan-isi link-bawahlaporan link-admin-isi">2 </a>
-                                <a
-                                href="#" class="member-laporan-isi link-bawahlaporan link-admin-isi khusus">. </a><a href="#" class="member-laporan-isi link-bawahlaporan link-admin-isi khusus">. </a><a href="#" class="member-laporan-isi link-bawahlaporan link-admin-isi khusus">. </a><a href="#" class="member-laporan-isi link-bawahlaporan link-admin-isi">10 </a>
-                                    <a
-                                    href="#" class="member-laporan-isi link-bawahlaporan link-admin-isi">NEXT </a>
-                            </div>
-                            <div class="col-lg-12 col-md-12 col-isi-laporan link-bawahlaporan"><a href="#" class="member-laporan-isi link-bawahlaporan link-admin-isi">TAMPILKAN SEMUA</a></div>
+                            <div class="col-lg-12 col-md-12 col-isi-laporan link-bawahlaporan">{!! $data->links() !!}</div>
                         </div>
                     </div>
                     <div class="statistik-laporan-member">

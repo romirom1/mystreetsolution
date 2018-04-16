@@ -1,44 +1,6 @@
 @extends('layouts.master')
 @section('content')
-    <div id="main">
-        <div id="bungkus-nav">
-            <div class="nav-ketiga">
-                <h2>DASHBOARD MEMBER</h2></div>
-            <div id="mySidenav" class="nav-kedua sidenav">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                <div class="row row-sidebar">
-                    <div class="col-md-12 col-sm-12 col-xs-12 col-sidebar">
-                        <ul class="navsidebar">
-                            <li class="list-navsidebar"><a href="{{ route('beranda') }}" class="list-sidebar"><i class="glyphicon glyphicon-dashboard icon-sidebar"></i><span>Beranda </span> </a> </li>
-                            <li class="list-navsidebar"><a href="#" class="list-sidebar"><i class="glyphicon glyphicon-list-alt icon-sidebar"></i><span>Buat Laporan</span></a> </li>
-                            <li class="list-navsidebar"><a href="#" class="list-sidebar"><i class="glyphicon glyphicon-screenshot icon-sidebar"></i><span>Pantau Laporan</span></a> </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="row row-sidebar">
-                    <div class="col-md-12 col-sm-12 col-xs-12 col-sidebar">
-                        <ul class="navsidebar sidebar-back">
-                            <li class="list-navsidebar"><a href="#" class="list-sidebar"><i class="glyphicon glyphicon-circle-arrow-left icon-sidebar"></i><span>Kembali </span> </a> </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="content main">
-            <div id="content2">
-                <div class="content-member">
-                    <div class="row Admin-name">
-                        <div class="col-md-12 col-adminName">
-                            <h3>{{ Auth()->user()->name }}</h3>
-                            <p>{{ Auth()->user()->email }}</p>
-                            <p>Bergabung sejak {{ Auth()->user()->created_at }}</p>
-                        </div>
-                    </div>
-                    <div class="row row-laporan">
-                        <div class="col-md-2 col-sm-3 col-xs-5 col-btn-member kiri"><a class="btn btn-default btn-member" role="button" href="#">LAPORAN ANDA</a></div>
-                        <div class="col-md-2 col-sm-3 col-xs-6 col-btn-member"><a class="btn btn-default btn-member" role="button" href="#">KOMENTAR ANDA</a></div>
-                    </div>
-                    <div class="laporan-anda">
+                       <div class="laporan-anda">
                         <div class="row row-header-member">
                             <div class="col-md-12">
                                 <h2>Laporan Anda</h2></div>
@@ -57,29 +19,17 @@
                             <div class="col-md-4 col-sm-4 col-laporan-member col-aksi">
                                 <h3>AKSI </h3></div>
                         </div>
-                        <div class="row row-member-laporan-judul">
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-isi-laporan isi-judul"><a href="#" class="member-laporan-isi">Trotoar Tidak Tersedia di jalan sikatan</a></div>
+                        @foreach ($laporan as $laporans)
+                            <div class="row row-member-laporan-judul">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-isi-laporan isi-judul"><a href="#" class="member-laporan-isi">{{ $laporans->title }}</a></div>
                             <div class="col-lg-4 col-md-4 col-sm-4 col-isi-laporan isi-komentar">
                                 <p class="member-laporan-isi">0 </p>
                             </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-isi-laporan isi-aksi"><a class="btn btn-default member-laporan-isi btn-ubah" role="button" href="#">UBAH </a><a class="btn btn-default member-laporan-isi btn-hapus" role="button" href="#">HAPUS </a></div>
-                        </div>
-                        <div class="row row-member-laporan-judul">
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-isi-laporan isi-judul"><a href="#" class="member-laporan-isi">Trotoar Tidak Tersedia di jalan sikatan</a></div>
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-isi-laporan isi-komentar">
-                                <p class="member-laporan-isi">0 </p>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-isi-laporan isi-aksi"><a class="btn btn-default member-laporan-isi btn-ubah" role="button" href="#">UBAH </a><a class="btn btn-default member-laporan-isi btn-hapus" role="button" href="{{ route('delete.report',['id'=> $laporans->id]) }}">HAPUS </a></div>
                             </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-isi-laporan isi-aksi"><a class="btn btn-default member-laporan-isi btn-ubah" role="button" href="#">UBAH </a><a class="btn btn-default member-laporan-isi btn-hapus" role="button" href="#">HAPUS </a></div>
-                        </div>
+                        @endforeach
                         <div class="row row-member-laporan-judul">
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-isi-laporan isi-judul"><a href="#" class="member-laporan-isi">Trotoar Tidak Tersedia di jalan sikatan</a></div>
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-isi-laporan isi-komentar">
-                                <p class="member-laporan-isi">0 </p>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-isi-laporan isi-aksi"><a class="btn btn-default member-laporan-isi btn-ubah" role="button" href="#">UBAH </a><a class="btn btn-default member-laporan-isi btn-hapus" role="button" href="#">HAPUS </a></div>
-                        </div>
-                        <div class="row row-member-laporan-judul">
-                            <div class="col-lg-12 col-md-12 col-isi-laporan link-bawahlaporan"><a href="#" class="member-laporan-isi link-bawahlaporan">1 </a></div>
+                            <div class="col-lg-12 col-md-12 col-isi-laporan link-bawahlaporan">{!! $laporan->links() !!}</div>
                         </div>
                     </div>
                     <div class="statistik-laporan-member">
@@ -90,7 +40,7 @@
                         </div>
                         <div class="row isi-statistik-member">
                             <div class="col-md-3 col-sm-3 isi-statistik">
-                                <h3>3 </h3>
+                                <h3>{{ $count }} </h3>
                                 <p>Total Laporan</p>
                             </div>
                             <div class="col-md-3 col-sm-3 isi-statistik">

@@ -5,7 +5,7 @@
             <div class="bungkus-login">
                 <div class="row row-register">
                     <div class="col-lg-8 col-md-6 col-sm-6">
-                        <a href="{{ route('beranda') }}"><img src="{{ asset('assets/img/logo.png') }}"></a>
+                        <img src="{{ asset('assets/img/logo.png') }}"> 
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <ul class="navbar-left nav-akun">
@@ -36,12 +36,14 @@
                     <div class="row row-password">
                         <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 login-text">
                             <label>Password </label>
-                            <ul class="forget-password">
-                                <li><a href="#">Lupa Password?</a></li>
-                            </ul>
                         </div>
                         <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12 login-input">
                             <input class="form-control" type="password" name="password" placeholder="Password">
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 login-text">
+                            <ul class="forget-password">
+                                <li><a href="#">Lupa Password?</a></li>
+                            </ul>
                         </div>
                     </div>
                     <div class="row row-button">

@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App;
+use Illuminate\Support\Facades\DB;
 class AdminController extends Controller
 {
     /**
@@ -24,6 +25,10 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin');
+        $data = DB::table('reports')
+                ->leftJoin('categories', 'reports.categories_id', '=', 'categories.id')
+                ->paginate(5);
+                //dd($data);
+        return view('admin')->with('data',$data);
     }
 }

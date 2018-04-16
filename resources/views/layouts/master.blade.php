@@ -14,19 +14,18 @@
 <body>
     <div id="bungkus-nav">
         @if(Auth::check())
-        @if (!(Auth::guard('admin')))
+        @if(!Auth::guard('admin')->check())  
             <div class="nav-pertama">
                 <nav class="navbar navbar-inverse nav-atas">
                     <div class="container-fluid">
-                        @if (Request::url() === url('user'))
+                        @if (Request::is('user/*')||Request::is('user'))
                             <div class="navbar-header">
-                            <a class="navbar-brand navbar-link" href="#">
-                                <span id="openNav" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span><img src="{{ asset('assets/img/logo.png') }}" id="img-logo"></a>
+                                <span id="openNav" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span><img src="{{ asset('assets/img/logo.png') }}" id="img-logo">
                             <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"></button>
                         </div>
                         @else
                             <div class="navbar-header">
-                            <a class="navbar-brand navbar-link" href="#"> <img src="{{asset('assets/img/logo.png')}}" id="img-logo"></a>
+                            <a class="navbar-brand navbar-link" href="{{ route('beranda') }}"> <img src="{{asset('assets/img/logo.png')}}" id="img-logo"></a>
                             <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
                             </div>
                         @endif
@@ -35,7 +34,7 @@
                                 <li class="dropdown akun-dropdown"><a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Akun saya <i class="glyphicon glyphicon-user"></i><span class="caret"></span></a>
                                     <ul class="dropdown-menu akun-dropdown" role="menu">
                                         <li role="presentation"><a href="{{ route('user.dashboard') }}">{{ Auth()->user()->name }}</a></li>
-                                        <li role="presentation"><a href="#">Edit Profil</a></li>
+                                        <li role="presentation"><a href="{{ route('user.edit-profile') }}">Edit Profil</a></li>
                                         <li role="presentation"><a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">Log Out</a>
                                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -49,21 +48,64 @@
                     </div>
                 </nav>
         </div>
+        @if (Request::is('user/*')||Request::is('user'))
+<div id="main">
+        <div id="bungkus-nav">
+            <div class="nav-ketiga">
+                <h2>DASHBOARD MEMBER</h2></div>
+            <div id="mySidenav" class="nav-kedua sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <div class="row row-sidebar">
+                    <div class="col-md-12 col-sm-12 col-xs-12 col-sidebar">
+                        <ul class="navsidebar">
+                            <li class="list-navsidebar"><a href="{{ route('beranda') }}" class="list-sidebar"><i class="glyphicon glyphicon-dashboard icon-sidebar"></i><span>Beranda </span> </a> </li>
+                            <li class="list-navsidebar"><a href="{{ route('tambah.laporan') }}" class="list-sidebar"><i class="glyphicon glyphicon-list-alt icon-sidebar"></i><span>Buat Laporan</span></a> </li>
+                            <li class="list-navsidebar"><a href="#" class="list-sidebar"><i class="glyphicon glyphicon-screenshot icon-sidebar"></i><span>Pantau Laporan</span></a> </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row row-sidebar">
+                    <div class="col-md-12 col-sm-12 col-xs-12 col-sidebar">
+                        <ul class="navsidebar sidebar-back">
+                            <li class="list-navsidebar"><a href="{{ URL::previous() }}" class="list-sidebar"><i class="glyphicon glyphicon-circle-arrow-left icon-sidebar"></i><span>Kembali </span> </a> </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content main">
+            <div id="content2">
+                <div class="content-member">
+                    <div class="row Admin-name">
+                        <div class="col-md-12 col-adminName">
+                            <h3>{{ Auth()->user()->name }}</h3>
+                            <p>{{ Auth()->user()->email }}</p>
+                            <p>Bergabung sejak {{ Auth()->user()->created_at }}</p>
+                        </div>
+                    </div>
+                    <div class="row row-laporan">
+                        <div class="col-md-2 col-sm-3 col-xs-5 col-btn-member kiri"><a class="btn btn-default btn-member" role="button" href="{{ route('user.dashboard') }}">LAPORAN ANDA</a></div>
+                        <div class="col-md-2 col-sm-3 col-xs-6 col-btn-member"><a class="btn btn-default btn-member" role="button" href="#">KOMENTAR ANDA</a></div>
+                    </div>
+ 
+        @endif
         @endif
         @else
         <div id="nav-pertama">
             <nav class="navbar navbar-inverse nav-atas">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <a class="navbar-brand navbar-link" href="#"> <img src="{{asset('assets/img/logo.png')}}" id="img-logo"></a>
+                        <a class="navbar-brand navbar-link" href="{{ route('beranda') }}"> <img src="{{asset('assets/img/logo.png')}}" id="img-logo"></a>
                         <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
                     </div>
+                    @if (!(Request::url() === url('/user/login')||Request::url() === url('/user/register')||Request::url() === url('/admin/login')))
                     <div class="collapse navbar-collapse" id="navcol-1">
                         <ul class="nav navbar-nav navbar-right">
                             <li role="presentation" class="nav-btn btn-regis"><a href="{{ route('register') }}">REGISTER </a></li>
                             <li role="presentation" class="nav-btn btn-login"><a href="{{ route('login') }}">LOGIN </a></li>
                         </ul>
                     </div>
+                    @endif
                 </div>
             </nav>
         </div>
@@ -98,7 +140,7 @@
                     <h3 class="text-left">CEK STATUS LAPORAN ANDA</h3></div>
                 <div class="col-md-5 col-sm-5 col-input">
                     <input class="input-sm input-cekid" type="text" placeholder="Ketik id laporan anda"><a class="btn btn-default btn-cek" role="button" href="#">CEK </a></div>
-                <div class="col-md-2 col-sm-2"><a class="btn btn-default btn-laporan" role="button" href="#">BUAT LAPORAN</a></div>
+                <div class="col-md-2 col-sm-2"><a class="btn btn-default btn-laporan" role="button" href="{{ route('tambah.laporan') }}">BUAT LAPORAN</a></div>
             </div>
         </div>
     </div>

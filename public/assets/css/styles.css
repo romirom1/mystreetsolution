@@ -1086,8 +1086,8 @@ div.col-lg-9.col-md-9.col-sm-8.col-xs-12.foto-input{
 }
 
 img.img-fluid.semua-laporan{
-  height:200px;
-  max-width:100%;
+  height:250px;
+  width:260px;
 }
 
 div.row.konten-laporan h3{
@@ -1132,5 +1132,91 @@ div.row.isi-laporan p{
 
 div.row.isi-laporan h4{
   margin-top:0;
+}
+
+i.fa.fa-edit.icone{
+  font-size:25px;
+  float:left;
+  padding-right:25px;
+}
+
+div.row.row-username{
+  margin-right:5%;
+  margin-left:0%;
+  border:3px solid;
+  border-bottom:none;
+}
+
+span.bintang{
+  font-size:25px;
+  color:red;
+}
+
+select.form-control.select-option{
+  color:#b1b0b0;
+  border-right-radius:15px;
+  margin:0;
+}
+
+img.semua-laporan:hover{
+  opacity:0.7;
+}
+
+.modal{
+  display:none;
+  position:fixed;
+  z-index:1;
+  padding-top:100px;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  overflow:auto;
+  background-color:rgb(0,0,0);
+  background-color:rgba(0,0,0,0.9);
+}
+
+.modal-content{
+  margin:auto;
+  display:block;
+  width:80%;
+  max-width:700px;
+}
+
+.modal-content{
+  -webkit-animation-name:zoom;
+  -webkit-animation-duration:0.6s;
+  animation-name:zoom;
+  animation-duration:0.6s;
+}
+
+@-webkit-keyframes zoom{
+  from {-webkit-transform:scale(0)}     to {-webkit-transform:scale(1)};
+}
+
+@keyframes zoom{
+  from {transform:scale(0)}     to {transform:scale(1)};
+}
+
+.close{
+  position:absolute;
+  top:15px;
+  right:35px;
+  color:#f1f1f1;
+  font-size:40px;
+  font-weight:bold;
+  transition:0.3s;
+}
+
+.close:hover, .close:focus{
+  color:#bbb;
+  text-decoration:none;
+  cursor:pointer;
+}
+
+@media only screen and (max-width: 700px) {
+  .modal-content{
+    width:100%;
+  }
 }
 
