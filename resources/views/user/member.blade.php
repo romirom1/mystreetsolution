@@ -21,13 +21,14 @@
                         </div>
                         @foreach ($laporan as $laporans)
                             <div class="row row-member-laporan-judul">
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-isi-laporan isi-judul"><a href="#" class="member-laporan-isi">{{ $laporans->title }}</a></div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-isi-laporan isi-judul"><a href="{{ route('isi.laporan',['id'=> $laporans->id]) }}" class="member-laporan-isi">{{ $laporans->title }}</a></div>
                             <div class="col-lg-4 col-md-4 col-sm-4 col-isi-laporan isi-komentar">
                                 <p class="member-laporan-isi">0 </p>
                             </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-isi-laporan isi-aksi"><a class="btn btn-default member-laporan-isi btn-ubah" role="button" href="#">UBAH </a><a class="btn btn-default member-laporan-isi btn-hapus" role="button" href="{{ route('delete.report',['id'=> $laporans->id]) }}">HAPUS </a></div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-isi-laporan isi-aksi"><a class="btn btn-default member-laporan-isi btn-ubah" role="button" href="{{ route('edit.laporan',['id'=> $laporans->id]) }}">UBAH </a><a class="btn btn-default member-laporan-isi btn-hapus" role="button" href="{{ route('delete.report',['id'=> $laporans->id]) }}">HAPUS </a></div>
                             </div>
                         @endforeach
+                        {{ $laporan->currentPage() }}
                         <div class="row row-member-laporan-judul">
                             <div class="col-lg-12 col-md-12 col-isi-laporan link-bawahlaporan">{!! $laporan->links() !!}</div>
                         </div>
@@ -40,21 +41,21 @@
                         </div>
                         <div class="row isi-statistik-member">
                             <div class="col-md-3 col-sm-3 isi-statistik">
-                                <h3>{{ $count }} </h3>
+                                <h3>{{ $count1 }} </h3>
                                 <p>Total Laporan</p>
                             </div>
                             <div class="col-md-3 col-sm-3 isi-statistik">
-                                <h3>30 days</h3></div>
+                                <h3>Laporan Dikirim</h3></div>
                             <div class="col-md-6 col-sm-3 isi-statistik">
                                 <h3>Statiistike </h3></div>
                         </div>
                         <div class="row isi-statistik-member row-ke2">
                             <div class="col-md-3 col-sm-3 isi-statistik">
-                                <h3>3 </h3>
+                                <h3>{{ $count2 }} </h3>
                                 <p>Total Laporan</p>
                             </div>
                             <div class="col-md-3 col-sm-3 isi-statistik">
-                                <h3>30 days</h3></div>
+                                <h3>Laporan Tuntas</h3></div>
                             <div class="col-md-6 col-sm-3 isi-statistik">
                                 <h3>Statistike </h3></div>
                         </div>

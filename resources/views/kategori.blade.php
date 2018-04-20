@@ -14,8 +14,9 @@
                         <h4><a href="{{ route('isi.laporan',['id'=> $value->id]) }}">{{ $value->title }}</a></h4>
                             {{ $value->content }}
                         <ul class="list-daftar-laporan">
-                            <li class="laporan-tanggal">Waktu : {{ $value->created_at }} </li>
-                            <li class="laporan-nama">Pelapor : {{ $value->name }} </li>
+                            <li class="laporan-tanggal">{{ $value->created_at }} </li>
+                            <li class="laporan-komentar">0 Komentar</li>
+                            <li class="laporan-nama">Rama </li>
                         </ul>
                     </div>
                 </div>

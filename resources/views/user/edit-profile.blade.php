@@ -16,6 +16,7 @@
                         </div>
                         <form id="formulir-register" method="post" enctype="multipart/form-data" action ="{{ route('user.update-profile') }}"  class="bootstrap-form-with-validation">
                         	{{ csrf_field() }}
+                            <input value="{{ $data->id }}" name="id" class="form-control" type="hidden">
                             <div class="row row-username">
                                 <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 login-text">
                                     <label class="label-laporan">Nama </label>

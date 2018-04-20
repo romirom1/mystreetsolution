@@ -38,15 +38,16 @@
                 <div class="row row-sidebar">
                     <div class="col-md-12 col-sm-12 col-xs-12 col-sidebar">
                         <ul class="navsidebar">
-                            <li class="list-navsidebar"><a href="{{ route('beranda') }}" class="list-sidebar"><i class="glyphicon glyphicon-dashboard icon-sidebar"></i><span>Beranda </span> </a> </li>
-                            <li class="list-navsidebar"><a href="#" class="list-sidebar"><i class="glyphicon glyphicon-screenshot icon-sidebar"></i><span>Pantau Laporan</span></a> </li>
+                            <li class="list-navsidebar"><a href="{{ route('admin.DASHBOARD') }}" class="list-sidebar"><i class="glyphicon glyphicon-dashboard icon-sidebar"></i><span>Beranda </span> </a> </li>
+                            <li class="list-navsidebar"><a href="#" class="list-sidebar"><i class="glyphicon glyphicon-screenshot icon-sidebar"></i><span>Kelola Laporan</span></a> </li>
+                            <li class="list-navsidebar"><a href="{{ route('tambah.laporan') }}" class="list-sidebar"><i class="glyphicon glyphicon-list-alt icon-sidebar"></i><span>Kelola Member</span></a> </li>
                         </ul>
                     </div>
                 </div>
                 <div class="row row-sidebar">
                     <div class="col-md-12 col-sm-12 col-xs-12 col-sidebar">
                         <ul class="navsidebar sidebar-back">
-                            <li class="list-navsidebar"><a href="{{URL::previous() }}" class="list-sidebar"><i class="glyphicon glyphicon-circle-arrow-left icon-sidebar"></i><span>Kembali </span> </a> </li>
+                            <li class="list-navsidebar"><a href="{{ route('beranda') }}" class="list-sidebar"><i class="glyphicon glyphicon-circle-arrow-left icon-sidebar"></i><span>Kembali Ke Web </span> </a> </li>
                         </ul>
                     </div>
                 </div>

@@ -17,4 +17,8 @@ class Report extends Model
     public function categories(){
         return $this->belongsTo('App\Category');
     }
+
+    public function comments(){
+    	return $this->hasMany('App\Comment');
+    }
 }

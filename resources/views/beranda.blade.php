@@ -11,9 +11,9 @@
                         </div>
                         @foreach ($laporan as $element)
                         <div class="col-md-12 col-sm-12">
-                        <div class="col-md-4 col-sm-4 col-kiri"><img src="{{ asset('photo') }}/{{ $element->photo }}" class="img-fluid img-beranda"></div>
+                        <div class="col-md-4 col-sm-4 col-kiri"><img src="{{ asset('photo') }}/{{ $element->photo }}" class="img-fluid img-beranda" style="width: 200px; height: 100px;"></div>
                         <div class="col-md-8 col-sm-8" style="word-wrap: break-word;">
-                        <h4>{{ $element->title }}</h4>
+                        <h4><a href="{{ route('isi.laporan',['id'=> $element->id]) }}">{{ $element->title }}</a></h4>
                         <p><em>{{ $element->title}}</em>, {{ $element->content }}</p>
                         </div>
                         </div>
@@ -25,23 +25,23 @@
                         <h3>KATEGORI LAPORAN</h3>
                         <ul class="list-group">
                             <li class="list-group-item nama-list jln-rusak">
-                                <a href="#"> <span>Jalan Rusak</span></a><a class="btn btn-default btn-lihatlaporan" role="button" href="#">LIHAT </a></li>
+                                <a href="{{ route('kategori.laporan',['id'=> 1]) }}"> <span>Jalan Rusak</span></a><a class="btn btn-default btn-lihatlaporan" role="button" href="{{ route('kategori.laporan',['id'=>1]) }}">LIHAT </a></li>
                             <li class="list-group-item nama-list jln-lubang">
-                                <a href="#"> <span>Jalan Berlubang</span></a><a class="btn btn-default btn-lihatlaporan" role="button" href="#">LIHAT </a></li>
+                                <a href="{{ route('kategori.laporan',['id'=> 2]) }}"> <span>Jalan Berlubang</span></a><a class="btn btn-default btn-lihatlaporan" role="button" href="{{ route('kategori.laporan',['id'=> 2]) }}">LIHAT </a></li>
                             <li class="list-group-item nama-list marka-jln">
-                                <a href="#"> <span>Marka Jalan</span></a><a class="btn btn-default btn-lihatlaporan" role="button" href="#">LIHAT </a></li>
+                                <a href="{{ route('kategori.laporan',['id'=> 3]) }}"> <span>Marka Jalan</span></a><a class="btn btn-default btn-lihatlaporan" role="button" href="{{ route('kategori.laporan',['id'=>3]) }}">LIHAT </a></li>
                             <li class="list-group-item nama-list rambu-lalin">
-                                <a href="#"> <span>Rambu Lalu Lintas</span></a><a class="btn btn-default btn-lihatlaporan" role="button" href="#">LIHAT </a></li>
+                                <a href="{{ route('kategori.laporan',['id'=> 4]) }}"> <span>Rambu Lalu Lintas</span></a><a class="btn btn-default btn-lihatlaporan" role="button" href="{{ route('kategori.laporan',['id'=> 4]) }}">LIHAT </a></li>
                             <li class="list-group-item nama-list lampu-lalin">
-                                <a href="#"> <span>Lampu Lalu Lintas</span></a><a class="btn btn-default btn-lihatlaporan" role="button" href="">LIHAT </a></li>
+                                <a href="{{ route('kategori.laporan',['id'=> 5]) }}"> <span>Lampu Lalu Lintas</span></a><a class="btn btn-default btn-lihatlaporan" role="button" href="{{ route('kategori.laporan',['id'=> 5]) }}">LIHAT </a></li>
                             <li class="list-group-item pmbts-jln">
-                                <a href="#"> <span>Pembatas Jalan</span></a><a class="btn btn-default btn-lihatlaporan" role="button" href="#">LIHAT </a></li>
+                                <a href="{{ route('kategori.laporan',['id'=> 6]) }}"> <span>Pembatas Jalan</span></a><a class="btn btn-default btn-lihatlaporan" role="button" href="{{ route('kategori.laporan',['id'=> 6]) }}">LIHAT </a></li>
                             <li class="list-group-item nama-list trotoar">
-                                <a href="#"> <span>Trotoar </span></a><a class="btn btn-default btn-lihatlaporan" role="button" href="#">LIHAT </a></li>
+                                <a href="{{ route('kategori.laporan',['id'=> 7]) }}"> <span>Trotoar </span></a><a class="btn btn-default btn-lihatlaporan" role="button" href="{{ route('kategori.laporan',['id'=> 7]) }}">LIHAT </a></li>
                             <li class="list-group-item nama-list terbengkalai">
-                                <a href="#"> <span>Kendaraan Terbengkalai</span></a><a class="btn btn-default btn-lihatlaporan" role="button" href="#">LIHAT </a></li>
+                                <a href="{{ route('kategori.laporan',['id'=> 8]) }}"> <span>Kendaraan Terbengkalai</span></a><a class="btn btn-default btn-lihatlaporan" role="button" href="{{ route('kategori.laporan',['id'=> 8]) }}">LIHAT </a></li>
                             <li class="list-group-item nama-list lampu-jln">
-                                <a href="#"> <span>Lampu Penerangan Jalan</span></a><a class="btn btn-default btn-lihatlaporan" role="button" href="#">LIHAT </a></li>
+                                <a href="{{ route('kategori.laporan',['id'=> 9]) }}"> <span>Lampu Penerangan Jalan</span></a><a class="btn btn-default btn-lihatlaporan" role="button" href="{{ route('kategori.laporan',['id'=> 9]) }}">LIHAT </a></li>
                         </ul>
                         <h3>STATISTIK LAPORAN</h3>
                         <ul id="list-chart">
