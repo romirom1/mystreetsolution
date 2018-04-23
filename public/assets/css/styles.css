@@ -406,6 +406,7 @@ a.btn.btn-default.btn-cek{
   background:#fd8000;
   border-color:#313132;
   font-weight:100;
+  margin-top:7px;
 }
 
 .btn-cek:hover, .btn-cek:focus, .btn-cek:active{

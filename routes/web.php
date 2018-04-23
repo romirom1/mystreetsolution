@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,6 +25,7 @@ Route::prefix('user')->group(function(){
 	Auth::routes();
 	Route::get('/komentar','UserController@komentarmember')->name('komentar.member');
 	Route::get('/','UserController@index')->name('user.dashboard');
+	Route::get('/pantau-laporan','LaporanController@pantau')->middleware('auth')->name('panta.laporan');
 	Route::get('/profile','UserController@profile')->name('user.lihat-profile');
 	Route::get('/edit-profile','UserController@editprofile')->name('user.edit-profile');
 	Route::post('/update-profile','UserController@updateprofile')->name('user.update-profile');

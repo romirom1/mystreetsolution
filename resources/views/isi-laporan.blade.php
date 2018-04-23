@@ -13,11 +13,16 @@
                 <div class="row isi-laporan">
                     <div class="col-md-8 col-sm-8" style="word-wrap: break-word;">
                         <p>{{ $laporan->content }}</p>
-                        <div class="bottom-artikel"><span class="kategorine">Kategori : <a href="{{ route('kategori.laporan',['id'=> $laporan->categories_id]) }}">{{ $kategori->name }}</a></span><span class="posted">Diposting oleh {{ $user->name }} pada {{ $laporan->created_at }}</span></div>
+                        
                     </div>
                     <div class="col-md-4 col-sm-4 col-kiri"><img src="{{ asset('photo') }}/{{ $laporan->photo }}" class="img-fluid isi-laporan"></div>
+                    <div class="col-md-12 col-sm-12">
+                                <div id="map" style="height:400px;width:100%"></div>
+                            </div>
+                    <div class="bottom-artikel"><span class="kategorine">Kategori : <a href="{{ route('kategori.laporan',['id'=> $laporan->categories_id]) }}">{{ $kategori->name }}</a></span><span class="posted">Diposting oleh {{ $user->name }} pada {{ $laporan->created_at }}</span></div>
                 </div>
                 <div class="row row-sosmed">
+                    
                     <div class="col-md-6 sosial-share">
                         <h3>Bagikan Laporan</h3></div>
                     <div class="col-md-6 sosial-share">
@@ -37,7 +42,7 @@
                             <div class="col-md-12">
                                 <form class="form-komentar" method="post" action="{{ route('tambah.komentar') }}">
                                     {{ csrf_field() }}
-                                    <textarea class="form-control text-komentar" name="content"></textarea>
+                                    <textarea class="form-control text-komentar" name="content" required autofocus></textarea>
                                     <input class="form-control" type="hidden" name="report_id" value="{{ $laporan->id }}">
                                     <button class="btn btn-default btn-komentar" type="submit"> <i class="glyphicon glyphicon-send"></i></button>
                                 </form>
@@ -47,7 +52,11 @@
                     @if($jumlahkomentar!==0)
                         @foreach ($komentar as $key=>$value)
                         <div class="row isine-komentar">
-                            <div class="col-md-1"><img src="{{ asset('photo') }}/{{ $value->photo }}" class="img-fluid img-komentar"></div>
+                            <div class="col-md-1"><img src="@if ($value->photo==="")
+                                        {{ asset('assets/img/avatar_2x.png') }}
+                                    @else
+                                        {{ asset('photo')}}/{{ $value->photo }}
+                                    @endif" class="img-fluid img-komentar"></div>
                             <div class="col-md-9" style="word-wrap: break-word;"><span class="nama-member">{{ $value->name }} </span><span class="waktu-komentar">{{ $value->created_at }}</span>
                             <p>{{ $value->content }}</p>
                             </div>
@@ -58,4 +67,38 @@
             </div>
         </div>
     </div>
+    <script>
+        function isiMap(){
+            var pos = {
+                    lat: {{ $longlat[0] }},
+                    lng: {{ $longlat[1] }}
+                };
+            var map = new google.maps.Map(document.getElementById('map'), {
+                    center: pos,
+                    zoom: 20
+            });
+            var infoWindow = new google.maps.InfoWindow;
+            var geocoder = new google.maps.Geocoder;
+            geocoder.geocode({'location': pos}, function(results, status) {
+          if (status === 'OK') {
+            if (results[1]) {
+              map.setZoom(20);
+              var marker = new google.maps.Marker({
+                position: pos,
+                map: map
+              });
+              infoWindow.setContent(results[1].formatted_address);
+              infoWindow.open(map, marker);
+            } else {
+              window.alert('No results found');
+            }
+          } else {
+            window.alert('Geocoder failed due to: ' + status);
+          }
+        });
+        }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCI81mclRbMJe5WGfBZJvwWpxJA18X06po&callback=initMap">
+    </script>
 @endsection

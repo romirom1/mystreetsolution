@@ -6,8 +6,7 @@
                 <div class="row">
                     <div class="col-md-12" id="text-keterangan">
                         <h1><strong>HUBUNGI TIM MYSTREET SOLUTION</strong></h1>
-                        <p><em>Lorem ipsum</em>, atau ringkasnya lipsum, adalah teks standar yang ditempatkan untuk mendemostrasikan elemen grafis atau presentasi visual seperti font, tipografi, dan tata letak. Maksud penggunaan lipsum adalah agar pengamat
-                            tidak terlalu berkonsentrasi kepada arti harfiah per kalimat, melainkan lebih kepada elemen </p>
+                        <p>Apabila ada hal yang ingin ditanyakan seputar MyStreet Solution, silakan menghubungi Tim MyStreet Solution melalui form di bawah ini. Kami akan membalas pesan anda melalui email yang anda camtumkan, jadi pastikan email yang anda masukkan benar.</p>
                     </div>
                 </div>
                 <form id="formulir" class="bootstrap-form-with-validation">

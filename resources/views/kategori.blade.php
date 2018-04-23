@@ -3,6 +3,12 @@
     <div class="content">
         <div id="content2">
             <div class="bungkus-beranda">
+                @if($laporan->items()===[])
+                    <div class="row konten-laporan">
+                        <div class="col-lg-12 col-md-12">
+                            <h3>OOOPS !!! belum ada data yang bisa ditampilkan untuk kategori ini </h3></div>
+                    </div>
+                @else
                 <div class="row konten-laporan">
                     <div class="col-lg-12 col-md-12">
                         <h3>DAFTAR LAPORAN</h3></div>
@@ -24,6 +30,8 @@
                 <div class="row row-member-laporan-judul" style="text-align:center">
                             <div class="col-lg-12 col-md-12" >{!! $laporan->links() !!}</div>
                         </div>
+                @endif
+                
             </div>
         </div>
     </div>

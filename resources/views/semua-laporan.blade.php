@@ -13,11 +13,13 @@
                     <div class="col-md-8 col-sm-4 " style="word-wrap: break-word;">
                         <h4><a href="{{ route('isi.laporan',['id'=> $value->id]) }}">{{ $value->title }}</a></h4>
                             {{ $value->content }}
-                        <ul class="list-daftar-laporan">
-                            <li class="laporan-tanggal">Waktu : {{ $value->created_at }} </li>
-                            <li class="laporan-nama">Pelapor : {{ $value->name }} </li>
-                        </ul>
                     </div>
+                    <div class="col-md-12 col-sm-12" style="float:bottom">
+                        <ul class="list-daftar-laporan" style="float:right">
+                            <li class="laporan-komentar">Waktu : {{ $value->created_at }} </li>
+                            <li class="laporan-komentar">{{ App\Comment::all()->where('report_id',$value->id)->count() }} Komentar</li>
+                            <li class="laporan-nama">Pelapor : {{ $value->name }} </li>
+                        </ul></div>
                 </div>
                 @endforeach
                 <div class="row row-member-laporan-judul" style="text-align:center">

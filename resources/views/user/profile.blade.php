@@ -7,7 +7,7 @@
                         <div class="row heading-profil">
                             <div class="col-lg-3 col-md-3 col-heading">
                                 <a href="hijab.jpg" data-lightbox="foto" data-title="foto"> <img src="
-                                    @if (Auth::user()->photo===null)
+                                    @if (Auth::user()->photo==="")
                                         {{ asset('assets/img/avatar_2x.png') }}
                                     @else
                                         {{ asset('photo')}}/{{ Auth::user()->photo }}

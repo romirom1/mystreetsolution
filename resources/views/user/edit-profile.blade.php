@@ -59,7 +59,7 @@
                             </div>
                             <div class="row row-button">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 login-button">
-                                    <button class="btn btn-primary login-button" type="submit">OK </button>
+                                    <button class="btn btn-primary login-button" type="submit">SIMPAN</button>
                                 </div>
                             </div>
                         </form>
